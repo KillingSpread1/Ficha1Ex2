@@ -79,11 +79,13 @@ public class Client {
         this.debt = debt;
     }
 
-    public boolean addAccount(Account account) {
-        if (!accounts.contains(account)){
-            accounts.add(account);
-        } else {
-            throw new ArrayStoreException("This account is already associated");
+    public boolean addAccount(Account... accounts) { //pode receber uma ou mais contas
+        for (Account account:accounts) {
+            if (!this.accounts.contains(account)){
+                this.accounts.add(account);
+            } else {
+                throw new ArrayStoreException("This account is already associated");
+            }
         }
         return true;
     }
